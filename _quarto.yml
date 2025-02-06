@@ -1,5 +1,17 @@
 project:
-  title: "IntroToProgramming-SlotMachine"
+  type: book
+  output-dir: docs
+  
 
+book:
+ title: Slot Machine
+ chapters:
+ - index.qmd
+ - IntroToProgramming-SlotMachine.qmd
+
+format:
+  html:
+    theme: cosmo
+    
 
 

@@ -1,7 +1,3 @@
----
-title: "Slot Machine"
-format: html
----
 
 ## Making the table
 

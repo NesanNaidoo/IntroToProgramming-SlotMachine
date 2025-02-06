@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Slot Machine",
+    "section": "",
+    "text": "0.1 Quarto\nQuarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#running-code",
+    "href": "index.html#running-code",
+    "title": "Slot Machine",
+    "section": "0.2 Running Code",
+    "text": "0.2 Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed).",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "IntroToProgramming-SlotMachine.html",
+    "href": "IntroToProgramming-SlotMachine.html",
+    "title": "2  Making the table",
+    "section": "",
+    "text": "2.1 Make the reel,Spin the reel and record the outcome\n#let \"h” = hearts,\n# \"d” = diamonds, ..., \"ca” = ca\nReel&lt;-c(rep(\"h\",7), rep(\"d\",5), rep(\"s\",3), rep(\"c\",6),\nrep(\"j\",9), rep(\"ca\",20))\n#?sample\n#randomly select an element from within Reel\nspin&lt;- sample(Reel, size=1)\nspin\n\n[1] \"c\"",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Making the table</span>"
+    ]
+  },
+  {
+    "objectID": "IntroToProgramming-SlotMachine.html#alternate-method",
+    "href": "IntroToProgramming-SlotMachine.html#alternate-method",
+    "title": "2  Making the table",
+    "section": "2.2 Alternate method",
+    "text": "2.2 Alternate method\n\nReel2&lt;-1:6\n#probs of different symbols on reel\nprobs&lt;- c( 7, 5, 3, 6, 9, 20 )/50\nspin&lt;-sample(Reel2, size=1, prob=probs)\nspin\n\n[1] 6\n\n## [1] 6\nwinnings&lt;- c(2, 2.5, 8, 4, 2.5, 0)\npayout&lt;- winnings[spin]\npayout\n\n[1] 0",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Making the table</span>"
+    ]
+  },
+  {
+    "objectID": "IntroToProgramming-SlotMachine.html#exercise-1",
+    "href": "IntroToProgramming-SlotMachine.html#exercise-1",
+    "title": "2  Making the table",
+    "section": "2.3 Exercise 1",
+    "text": "2.3 Exercise 1\n\n# What is probability of getting the different winning symbols?\n\nset.seed(123)  #For reproducibility\n\nReel2&lt;-1:6\nprobs&lt;- c( 7, 5, 3, 6, 9, 20 )/50\nspin&lt;-sample(Reel2, size=1, prob=probs)\n\n\n#Simulate 10,000 spins\nspins &lt;- sample(Reel2, size = 10000, replace = TRUE, prob = probs)\ntable(spins)\n\nspins\n   1    2    3    4    5    6 \n1393  982  571 1207 1873 3974 \n\nestimatedProbs &lt;- table(spins) / 10000\nestimatedProbs\n\nspins\n     1      2      3      4      5      6 \n0.1393 0.0982 0.0571 0.1207 0.1873 0.3974 \n\nprobs\n\n[1] 0.14 0.10 0.06 0.12 0.18 0.40",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Making the table</span>"
+    ]
+  },
+  {
+    "objectID": "IntroToProgramming-SlotMachine.html#exercise-2",
+    "href": "IntroToProgramming-SlotMachine.html#exercise-2",
+    "title": "2  Making the table",
+    "section": "2.4 Exercise 2",
+    "text": "2.4 Exercise 2\n\n# Calculate the average pay out if you play the game once.\n\nset.seed(124)  #For reproducibility\n\nReel2&lt;-1:6\nprobs&lt;- c( 7, 5, 3, 6, 9, 20 )/50\nspin&lt;-sample(Reel2, size=1, prob=probs)\nwinnings&lt;- c(2, 2.5, 8, 4, 2.5, 0)\noriginalpayout&lt;- winnings[spin]\noriginalpayout\n\n[1] 0\n\nspinsEx2 &lt;- sample(Reel2, size = 10000, replace = TRUE, prob = probs)\n#Get payouts\npayoutsEx2 &lt;- winnings[spinsEx2]\n\n#Estimate the average payout if you play the game once.\nest_avg_payout &lt;- mean(payoutsEx2)\nest_avg_payout\n\n[1] 1.93995\n\n#Theoretical expected payout\ntrue_avg_payout &lt;- sum(probs*winnings)\ntrue_avg_payout\n\n[1] 1.94",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Making the table</span>"
+    ]
+  },
+  {
+    "objectID": "IntroToProgramming-SlotMachine.html#exercise-3",
+    "href": "IntroToProgramming-SlotMachine.html#exercise-3",
+    "title": "2  Making the table",
+    "section": "2.5 Exercise 3",
+    "text": "2.5 Exercise 3\n\nset.seed(125)  #For reproducibility\n\nReel2&lt;-1:6\nprobs&lt;- c( 7, 5, 3, 6, 9, 20 )/50\nspin&lt;-sample(Reel2, size=1, prob=probs)\nwinnings&lt;- c(2, 2.5, 8, 4, 2.5, 0)\n\nspinsEx3 &lt;- sample(Reel2, size = 10, replace = TRUE, prob = probs)\n#Get payouts\npayoutsEx3 &lt;- winnings[spinsEx3]\npayoutsEx3\n\n [1] 0.0 0.0 0.0 8.0 8.0 2.5 0.0 2.0 2.0 0.0\n\n#Total payout\ncum_payout &lt;- cumsum(payoutsEx3)\ncum_payout\n\n [1]  0.0  0.0  0.0  8.0 16.0 18.5 18.5 20.5 22.5 22.5\n\navgpayout &lt;- mean(payoutsEx3)\navgpayout\n\n[1] 2.25\n\n#Histogram showing cumulative paypout\nhist(cum_payout, \n     main= \"Histogram of Accumulated Payouts over 10 games\",\n     xlab= \"Cumulative Payout\",\n     ylab= \"Frequency\",\n     col= \"blue\",\n     border= \"black\",\n     breaks= 5)\n\n\n\n\n\n\n\nboxplot(cum_payout, \n        main = \"Boxplot of Accumulated Payouts\",\n        ylab = \"Cumulative Payout\",\n        col = \"lightgreen\"\n        )\n\n\n\n\n\n\n\n#Histogram showing paypout frequency\nhist(payoutsEx3, \n     main = \"Histogram of Payouts over 10 games\",\n     xlab = \"Payouts\",\n     ylab = \"Frequency\",\n     col = \"lightblue\",\n     border = \"black\",\n     breaks = 5)\n\n\n\n\n\n\n\nboxplot(payoutsEx3, \n        main = \"Boxplot of Payouts over 10 games\",\n        ylab = \"Cumulative Payout\",\n        col = \"green\"\n        )\n\n\n\n\n\n\n\n#For accumulated payouts over 10 games\nmeanAccPayout &lt;- mean(cum_payout)\nmedAccPayout &lt;- median(cum_payout)\nfivenumAccPayout&lt;-fivenum(cum_payout)\n\nsummarystat &lt;- data.frame(Statistics = c(\"Mean\",\"Median\",\"Minimum\",\"Q1\",\"Q2\",\"Q3\",\"Maximum\"),Values=c(meanAccPayout,medAccPayout,fivenumAccPayout))\nprint(summarystat)\n\n  Statistics Values\n1       Mean  12.65\n2     Median  17.25\n3    Minimum   0.00\n4         Q1   0.00\n5         Q2  17.25\n6         Q3  20.50\n7    Maximum  22.50\n\n#For  payouts over 10 games\nmeanPayout &lt;- mean(payoutsEx3)\n\nmedPayout &lt;- median(payoutsEx3)\nfivenumPayout&lt;-fivenum(payoutsEx3)\n\nsummarystatpay &lt;- data.frame(Statistics = c(\"Mean\",\"Median\",\"Minimum\",\"Q1\",\"Q2\",\"Q3\",\"Maximum\"),Values=c(meanPayout,medPayout,fivenumPayout))\nprint(summarystatpay)\n\n  Statistics Values\n1       Mean   2.25\n2     Median   1.00\n3    Minimum   0.00\n4         Q1   0.00\n5         Q2   1.00\n6         Q3   2.50\n7    Maximum   8.00",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Making the table</span>"
+    ]
+  }
+]
