@@ -3,7 +3,7 @@ title: "Slot Machine"
 format: html
 ---
 
-# Slot Machine
+
 
 ## Making the table
 
@@ -47,8 +47,9 @@ payout
 
 ## Exercise 1
 
-```{r}
+```{r,}
 # What is probability of getting the different winning symbols?
+#| echo: false
 set.seed(123)  #For reproducibility
 
 Reel2<-1:6
