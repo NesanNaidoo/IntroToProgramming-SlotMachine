@@ -1,11 +1,156 @@
 ---
-title: "IntroToProgramming-SlotMachine"
+title: "Slot Machine"
+format: html
 ---
 
-## Quarto
+# Slot Machine
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+## Making the table
 
 ```{r}
-1 + 1
+#notice how to make a table
+library(knitr)
+Tile<-c("hearts", "diamonds", "spades", "clubs", "joker", "ca")
+b<-c(7, 5, 3, 6, 9, 20)
+win <- c(2, 2.5, 8, 4, 2.5, 0)
+Reel2<-cbind(Tile, b, win)
+colnames(Reel2)<-c("Symbol","Number of tiles", "Payout")
+kable(Reel2, align=c("l","c", "c"))
+```
+
+## Make the reel,Spin the reel and record the outcome
+
+```{r}
+#let "h” = hearts,
+# "d” = diamonds, ..., "ca” = ca
+Reel<-c(rep("h",7), rep("d",5), rep("s",3), rep("c",6),
+rep("j",9), rep("ca",20))
+#?sample
+#randomly select an element from within Reel
+spin<- sample(Reel, size=1)
+spin
+```
+
+## Alternate method
+
+```{r}
+Reel2<-1:6
+#probs of different symbols on reel
+probs<- c( 7, 5, 3, 6, 9, 20 )/50
+spin<-sample(Reel2, size=1, prob=probs)
+spin
+## [1] 6
+winnings<- c(2, 2.5, 8, 4, 2.5, 0)
+payout<- winnings[spin]
+payout
+```
+
+## Exercise 1
+
+```{r}
+# What is probability of getting the different winning symbols?
+set.seed(123)  #For reproducibility
+
+Reel2<-1:6
+probs<- c( 7, 5, 3, 6, 9, 20 )/50
+spin<-sample(Reel2, size=1, prob=probs)
+
+
+#Simulate 10,000 spins
+spins <- sample(Reel2, size = 10000, replace = TRUE, prob = probs)
+table(spins)
+estimatedProbs <- table(spins) / 10000
+estimatedProbs
+probs
+```
+
+## Exercise 2
+
+```{r}
+# Calculate the average pay out if you play the game once.
+
+set.seed(124)  #For reproducibility
+
+Reel2<-1:6
+probs<- c( 7, 5, 3, 6, 9, 20 )/50
+spin<-sample(Reel2, size=1, prob=probs)
+winnings<- c(2, 2.5, 8, 4, 2.5, 0)
+originalpayout<- winnings[spin]
+originalpayout
+
+spinsEx2 <- sample(Reel2, size = 10000, replace = TRUE, prob = probs)
+#Get payouts
+payoutsEx2 <- winnings[spinsEx2]
+
+#Estimate the average payout if you play the game once.
+est_avg_payout <- mean(payoutsEx2)
+est_avg_payout
+
+#Theoretical expected payout
+true_avg_payout <- sum(probs*winnings)
+true_avg_payout
+```
+
+## Exercise 3
+
+```{r}
+set.seed(125)  #For reproducibility
+
+Reel2<-1:6
+probs<- c( 7, 5, 3, 6, 9, 20 )/50
+spin<-sample(Reel2, size=1, prob=probs)
+winnings<- c(2, 2.5, 8, 4, 2.5, 0)
+
+spinsEx3 <- sample(Reel2, size = 10, replace = TRUE, prob = probs)
+#Get payouts
+payoutsEx3 <- winnings[spinsEx3]
+payoutsEx3
+#Total payout
+cum_payout <- cumsum(payoutsEx3)
+cum_payout
+avgpayout <- mean(payoutsEx3)
+avgpayout
+#Histogram showing cumulative paypout
+hist(cum_payout, 
+     main= "Histogram of Accumulated Payouts over 10 games",
+     xlab= "Cumulative Payout",
+     ylab= "Frequency",
+     col= "blue",
+     border= "black",
+     breaks= 5)
+boxplot(cum_payout, 
+        main = "Boxplot of Accumulated Payouts",
+        ylab = "Cumulative Payout",
+        col = "lightgreen"
+        )
+
+#Histogram showing paypout frequency
+hist(payoutsEx3, 
+     main = "Histogram of Payouts over 10 games",
+     xlab = "Payouts",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black",
+     breaks = 5)
+boxplot(payoutsEx3, 
+        main = "Boxplot of Payouts over 10 games",
+        ylab = "Cumulative Payout",
+        col = "green"
+        )
+#For accumulated payouts over 10 games
+meanAccPayout <- mean(cum_payout)
+medAccPayout <- median(cum_payout)
+fivenumAccPayout<-fivenum(cum_payout)
+
+summarystat <- data.frame(Statistics = c("Mean","Median","Minimum","Q1","Q2","Q3","Maximum"),Values=c(meanAccPayout,medAccPayout,fivenumAccPayout))
+print(summarystat)
+
+#For  payouts over 10 games
+meanPayout <- mean(payoutsEx3)
+
+medPayout <- median(payoutsEx3)
+fivenumPayout<-fivenum(payoutsEx3)
+
+summarystatpay <- data.frame(Statistics = c("Mean","Median","Minimum","Q1","Q2","Q3","Maximum"),Values=c(meanPayout,medPayout,fivenumPayout))
+print(summarystatpay)
 ```
