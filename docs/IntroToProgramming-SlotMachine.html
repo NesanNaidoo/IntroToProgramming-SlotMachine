@@ -163,11 +163,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#make-the-reelspin-the-reel-and-record-the-outcome" id="toc-make-the-reelspin-the-reel-and-record-the-outcome" class="nav-link active" data-scroll-target="#make-the-reelspin-the-reel-and-record-the-outcome"><span class="header-section-number">2.1</span> Make the reel,Spin the reel and record the outcome</a></li>
   <li><a href="#alternate-method" id="toc-alternate-method" class="nav-link" data-scroll-target="#alternate-method"><span class="header-section-number">2.2</span> Alternate method</a></li>
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">2.3</span> Exercise 1</a></li>
-  <li><a href="#what-is-probability-of-getting-the-different-winning-symbols" id="toc-what-is-probability-of-getting-the-different-winning-symbols" class="nav-link" data-scroll-target="#what-is-probability-of-getting-the-different-winning-symbols"><span class="header-section-number">2.4</span> What is probability of getting the different winning symbols?</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">2.5</span> Exercise 2</a></li>
-  <li><a href="#calculate-the-average-pay-out-if-you-play-the-game-once." id="toc-calculate-the-average-pay-out-if-you-play-the-game-once." class="nav-link" data-scroll-target="#calculate-the-average-pay-out-if-you-play-the-game-once."><span class="header-section-number">2.6</span> # Calculate the average pay out if you play the game once.</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3"><span class="header-section-number">2.7</span> Exercise 3</a></li>
+  <li><a href="#exercise-1what-is-probability-of-getting-the-different-winning-symbols" id="toc-exercise-1what-is-probability-of-getting-the-different-winning-symbols" class="nav-link" data-scroll-target="#exercise-1what-is-probability-of-getting-the-different-winning-symbols"><span class="header-section-number">2.3</span> Exercise 1:What is probability of getting the different winning symbols?</a></li>
+  <li><a href="#exercise-2-calculate-the-average-pay-out-if-you-play-the-game-once." id="toc-exercise-2-calculate-the-average-pay-out-if-you-play-the-game-once." class="nav-link" data-scroll-target="#exercise-2-calculate-the-average-pay-out-if-you-play-the-game-once."><span class="header-section-number">2.4</span> Exercise 2 : Calculate the average pay out if you play the game once.</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3"><span class="header-section-number">2.5</span> Exercise 3</a></li>
   </ul>
 </nav>
     </div>
@@ -255,7 +253,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>spin<span class="ot">&lt;-</span> <span class="fu">sample</span>(Reel, <span class="at">size=</span><span class="dv">1</span>)</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>spin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "ca"</code></pre>
+<pre><code>[1] "j"</code></pre>
 </div>
 </div>
 </section>
@@ -268,22 +266,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>spin<span class="ot">&lt;-</span><span class="fu">sample</span>(Reel2, <span class="at">size=</span><span class="dv">1</span>, <span class="at">prob=</span>probs)</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>spin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
+<pre><code>[1] 4</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 6</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>winnings<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">2.5</span>, <span class="dv">8</span>, <span class="dv">4</span>, <span class="fl">2.5</span>, <span class="dv">0</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>payout<span class="ot">&lt;-</span> winnings[spin]</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>payout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0</code></pre>
+<pre><code>[1] 4</code></pre>
 </div>
 </div>
 </section>
-<section id="exercise-1" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">2.3</span> Exercise 1</h2>
-</section>
-<section id="what-is-probability-of-getting-the-different-winning-symbols" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="what-is-probability-of-getting-the-different-winning-symbols"><span class="header-section-number">2.4</span> What is probability of getting the different winning symbols?</h2>
+<section id="exercise-1what-is-probability-of-getting-the-different-winning-symbols" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="exercise-1what-is-probability-of-getting-the-different-winning-symbols"><span class="header-section-number">2.3</span> Exercise 1:What is probability of getting the different winning symbols?</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co">#For reproducibility</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -313,11 +308,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="exercise-2" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">2.5</span> Exercise 2</h2>
-</section>
-<section id="calculate-the-average-pay-out-if-you-play-the-game-once." class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="calculate-the-average-pay-out-if-you-play-the-game-once."><span class="header-section-number">2.6</span> # Calculate the average pay out if you play the game once.</h2>
+<section id="exercise-2-calculate-the-average-pay-out-if-you-play-the-game-once." class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="exercise-2-calculate-the-average-pay-out-if-you-play-the-game-once."><span class="header-section-number">2.4</span> Exercise 2 : Calculate the average pay out if you play the game once.</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">124</span>)  <span class="co">#For reproducibility</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -348,8 +340,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="exercise-3" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">2.7</span> Exercise 3</h2>
+<section id="exercise-3" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">2.5</span> Exercise 3</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">125</span>)  <span class="co">#For reproducibility</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>

@@ -1,4 +1,3 @@
-
 ## Making the table
 
 ```{r}
@@ -24,7 +23,6 @@ spin
 ```
 
 ## Alternate method
-
 ```{r}
 Reel2<-1:6
 #probs of different symbols on reel
@@ -37,8 +35,7 @@ payout<- winnings[spin]
 payout
 ```
 
-## Exercise 1
-## What is probability of getting the different winning symbols?
+## Exercise 1:What is probability of getting the different winning symbols?
 ```{r}
 set.seed(123)  #For reproducibility
 
@@ -55,8 +52,7 @@ estimatedProbs
 probs
 ```
 
-## Exercise 2
-## # Calculate the average pay out if you play the game once.
+## Exercise 2 : Calculate the average pay out if you play the game once.
 ```{r}
 set.seed(124)  #For reproducibility
 
