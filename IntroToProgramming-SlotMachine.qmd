@@ -2,7 +2,6 @@
 ## Making the table
 
 ```{r}
-#notice how to make a table
 library(knitr)
 Tile<-c("hearts", "diamonds", "spades", "clubs", "joker", "ca")
 b<-c(7, 5, 3, 6, 9, 20)
@@ -15,11 +14,10 @@ kable(Reel2, align=c("l","c", "c"))
 ## Make the reel,Spin the reel and record the outcome
 
 ```{r}
-#let "h” = hearts,
-# "d” = diamonds, ..., "ca” = ca
+
 Reel<-c(rep("h",7), rep("d",5), rep("s",3), rep("c",6),
 rep("j",9), rep("ca",20))
-#?sample
+
 #randomly select an element from within Reel
 spin<- sample(Reel, size=1)
 spin
@@ -40,11 +38,8 @@ payout
 ```
 
 ## Exercise 1
-
+## What is probability of getting the different winning symbols?
 ```{r}
-
-# What is probability of getting the different winning symbols?
-
 set.seed(123)  #For reproducibility
 
 Reel2<-1:6
@@ -61,10 +56,8 @@ probs
 ```
 
 ## Exercise 2
-
+## # Calculate the average pay out if you play the game once.
 ```{r}
-# Calculate the average pay out if you play the game once.
-
 set.seed(124)  #For reproducibility
 
 Reel2<-1:6
@@ -88,7 +81,6 @@ true_avg_payout
 ```
 
 ## Exercise 3
-
 ```{r}
 set.seed(125)  #For reproducibility
 
